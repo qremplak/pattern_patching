@@ -128,7 +128,7 @@ We get the following altered code :
 function printConsole(){
     console.log('Head script is working')
 }
-setInterval(checkURLchange, 1000);
+setInterval(printConsole, 1000);
 
 </script>
 </head>
