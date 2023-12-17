@@ -6,11 +6,14 @@ Pattern patching is a simple script **ppatch.sh** whose goal is to allow extendi
 
 Just download ppatch.sh file and use it as a shell script.
 
+Easy download from main branch and add to bin folder :
+> sudo curl --output /usr/bin/ppatch.sh -OL https://raw.githubusercontent.com/qremplak/pattern_patching/main/ppatch.sh && sudo chmod +x /usr/bin/ppatch.sh
+
 ## How to use
 
 Just call shell script and specify a folder containing one or multiple patches to apply.
 
-> bash ./ppatch.sh *<folder_containing_patches>*
+> ppatch.sh *<folder_containing_patches>*
 
 Each patch is a simple file formatted as follow :
 
@@ -96,6 +99,7 @@ In the provided example we will patch a standard html file *example/target_file.
 </html>
 ```
 ... given the following result :
+
 ![Alt text](images/before.png)
 
 There is a *example/patches* folder containing 4 patches :
@@ -146,7 +150,25 @@ setInterval(checkURLchange, 1000);
 ```
 
 ... given the following result :
+
 ![Alt text](images/after.png)
+
+## Quick usage in Dockerfile
+
+```dockerfile
+[...]
+
+# Download ppatch
+RUN curl --output /usr/bin/ppatch.sh -OL \
+    https://raw.githubusercontent.com/qremplak/pattern_patching/main/ppatch.sh \
+    && chmod +x /usr/bin/ppatch.sh
+# Copy patches folder into container
+COPY <folder_path> /home/<folder_path>
+# Apply patches
+RUN ppatch.sh /home/<folder_path>
+
+[...]
+```
 
 ## TODO
 - Fix eventual anomalies
