@@ -18,7 +18,7 @@ if [ ! -d "$directory" ]; then
     exit 1
 fi
 
-# Iterate over files with the .patch extension in the directory
+# Iterate over patches files in the directory
 for file in "$directory"/*; do
     if [ -f "$file" ]; then
         echo "Processing file: $file"

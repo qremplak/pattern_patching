@@ -172,5 +172,5 @@ RUN ppatch.sh /home/<folder_path>
 
 ## TODO
 - Fix eventual anomalies
-- Implement other patching actions (ex. delete)
+- Implement other patching actions (ex. delete, append to end of file, add to beginning of file, etc.)
 - Implement more robust pattern detection alternatives (ex. regex based)
